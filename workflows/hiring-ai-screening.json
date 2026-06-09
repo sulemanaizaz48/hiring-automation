@@ -1,0 +1,3298 @@
+{
+  "name": "AI Resume/CV Screener",
+  "nodes": [
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Combine Streams').item.json.sourceSheet }}",
+                    "rightValue": "SWE",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "d5b97ecd-b55b-4000-9acb-f30a07fcfced"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "SWE"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "41a98e8d-4366-4e06-b2e8-a71cd6700c02",
+                    "leftValue": "={{ $('Combine Streams').item.json.sourceSheet }}",
+                    "rightValue": "BDM",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "BDM"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        2176,
+        576
+      ],
+      "id": "04f08e19-be4c-41d4-b8f5-01dc9dde6867",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Combine Streams').item.json.sourceSheet }}",
+                    "rightValue": "SWE",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "d5b97ecd-b55b-4000-9acb-f30a07fcfced"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "SWE"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "41a98e8d-4366-4e06-b2e8-a71cd6700c02",
+                    "leftValue": "={{ $('Combine Streams').item.json.sourceSheet }}",
+                    "rightValue": "BDM",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "BDM"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        3072,
+        576
+      ],
+      "id": "d4f46eb5-9da6-40a8-b9fd-fd55e21693c0",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse Response').item.json.sourceSheet }}",
+                    "rightValue": "SWE",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c2eeccbb-fe34-43f6-a523-799a5e6e10ac"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "SWE "
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "2c4da080-8a29-435a-a16e-2846a9a6684c",
+                    "leftValue": "={{ $('Parse Response').item.json.sourceSheet }}",
+                    "rightValue": "BDM",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "BDM"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        4048,
+        -128
+      ],
+      "id": "c4ca801e-b150-4117-ac97-36825c70ddb5",
+      "name": "Switch3"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -176,
+        -64
+      ],
+      "id": "94697de3-77d6-4171-948c-360904490d2b",
+      "name": "Every 15 Min"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Software Engineering Form  (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1996882588,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Processed"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        48,
+        -176
+      ],
+      "id": "bd44ff8d-cb17-4088-8347-1e6dfb9dda67",
+      "name": "Get SWE Applications",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Business Development Manager Application (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 954949207,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Processed"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        48,
+        16
+      ],
+      "id": "b8ab8cb7-da46-4dc2-9b36-969b40df9e8e",
+      "name": "Get BDM Applications",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38a6d2c9-86b0-4f5c-850f-931bcda46d44",
+              "name": "name",
+              "value": "={{ $json['Full Name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "b8756367-7e3e-493e-9aa4-5465ff781ea5",
+              "name": "email",
+              "value": "={{ $json['Email Address'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8ff47ac3-2de8-433b-9dc8-fe1fd8b49ccf",
+              "name": "resumeUrl",
+              "value": "={{ $json.Resume }}",
+              "type": "string"
+            },
+            {
+              "id": "cc2c1dac-797a-42ff-96bb-d0b39e7f0b7d",
+              "name": "sourceSheet",
+              "value": "SWE",
+              "type": "string"
+            },
+            {
+              "id": "5830ff71-39da-4063-93ff-4e25918fc167",
+              "name": "sourceRow",
+              "value": "={{ $json.row_number }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        272,
+        -176
+      ],
+      "id": "8e53ad5c-627e-4787-b8a5-cbd819579268",
+      "name": "Standardize SWE Data"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9e97b17c-7306-4787-9468-b4d4b0f18ca8",
+              "name": "name",
+              "value": "={{ $json.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "6fee541e-56f1-483f-81b9-59a8e0352d41",
+              "name": "email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "232fd425-994d-4175-92d2-5ebce692509b",
+              "name": "resumeUrl",
+              "value": "={{ $json['CV Link'] }}",
+              "type": "string"
+            },
+            {
+              "id": "5d48b1ff-331a-41ba-84e5-0e2c502462d2",
+              "name": "sourceSheet",
+              "value": "=BDM",
+              "type": "string"
+            },
+            {
+              "id": "46cc89cd-9288-475f-b39a-8652f4a43b22",
+              "name": "sourceRow",
+              "value": "={{ $json.row_number }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        272,
+        16
+      ],
+      "id": "7ef78be2-e82d-4bd2-be91-a61873d7533c",
+      "name": "Standardize BDM Data"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        496,
+        -80
+      ],
+      "id": "84ce300b-51c3-48e9-a32d-b1bd535fb8dd",
+      "name": "Combine Streams"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Master Hiring Sheet",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $json.name }}",
+            "email": "={{ $json.email }}",
+            "resumeUrl": "={{ $json.resumeUrl }}",
+            "role": "={{ $json.role }}",
+            "sourceSheet": "={{ $json.sourceSheet }}",
+            "sourceRow": "={{ $json.sourceRow }}",
+            "applied_at": "={{ $json.applied_at }}",
+            "status": "={{ $json.status }}",
+            "email_status": "={{ $json.email_status }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "resumeUrl",
+              "displayName": "resumeUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sourceSheet",
+              "displayName": "sourceSheet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sourceRow",
+              "displayName": "sourceRow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "applied_at",
+              "displayName": "applied_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "score",
+              "displayName": "score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "classification",
+              "displayName": "classification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "strengths",
+              "displayName": "strengths",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "concerns",
+              "displayName": "concerns",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "recommendation",
+              "displayName": "recommendation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email_status",
+              "displayName": "email_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1168,
+        -96
+      ],
+      "id": "55a6cb1c-1a73-4bc7-be04-83dad0c50c1f",
+      "name": "Write to Master",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "85082ac0-718f-4e81-9cec-14cc6f75b12c",
+              "leftValue": "={{ $input.all().length > 0 }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        704,
+        -80
+      ],
+      "id": "cbf88c6e-84d2-4cfc-9b16-fda673eee3a8",
+      "name": "Application Count > 0"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nreturn items.map(item => {\n  const d = item.json;\n  return {\n    json: {\n      name: d['Full Name'] || d['Name'] || '',\n      email: d['Email Address'] || d['Email'] || '',\n      resumeUrl: d['Resume'] || d['CV Link'] || '',\n      role: d['sourceSheet'] === 'SWE' ? 'Software Engineer' : 'Business Development Manager',\n      sourceRow: d['sourceRow'],\n      sourceSheet: d['sourceSheet'],\n      applied_at: d['Timestamp'] || new Date().toISOString(),\n      status: 'processing',\n      email_status: 'pending'\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        992,
+        -96
+      ],
+      "id": "fc660b3a-6d36-468c-8073-4da837e5b378",
+      "name": "Format Application Data"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const data = item.json;\n\n  const url = data.resumeUrl || '';\n\n  let fileId = '';\n\n  // Format:\n  // https://drive.google.com/file/d/FILE_ID/view\n  let match = url.match(/\\/d\\/([a-zA-Z0-9_-]+)/);\n\n  if (match) {\n    fileId = match[1];\n  } else {\n    // Format:\n    // https://drive.google.com/open?id=FILE_ID\n    match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);\n\n    if (match) {\n      fileId = match[1];\n    }\n  }\n\n  return {\n    json: {\n      ...data,\n      fileId,\n      downloadUrl: fileId\n        ? `https://drive.google.com/uc?export=download&id=${fileId}`\n        : null\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1392,
+        -96
+      ],
+      "id": "47969834-313a-43d8-b370-80d8643ba0a5",
+      "name": " Extract Drive File ID"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nreturn items.map(item => {\n  const binary = item.binary;\n  const fileKey = binary ? Object.keys(binary)[0] : null;\n  const data = fileKey ? binary[fileKey] : null;\n  \n  // Use metadata (always reliable, even with filesystem-v2 storage)\n  const fileName = data?.fileName || '';\n  const fileExt = (data?.fileExtension || '').toLowerCase();\n  const mimeType = data?.mimeType || '';\n  const fileSize = data?.fileSize || 0;\n  const base64 = data?.data || '';\n  \n  // Detect if n8n stored it as filesystem reference\n  const isFilesystemRef = base64.startsWith('filesystem');\n  \n  let status = 'valid';\n  let reason = '';\n  let fileType = fileExt.toUpperCase();\n  \n  if (!data || fileSize === 0) {\n    status = 'invalid';\n    reason = 'File download failed - empty';\n  } else if (fileSize < 1000) {\n    status = 'invalid';\n    reason = 'File too small to be a valid CV';\n  } else if (!isFilesystemRef) {\n    // Only check base64 signatures if data is actually inline\n    const isHTML = base64.includes('PCFET0NU') || base64.includes('<!DOCTYPE');\n    const isPDF = base64.startsWith('JVBER');\n    const isJPEG = base64.startsWith('/9j/');\n    const isPNG = base64.startsWith('iVBOR');\n    \n    if (isHTML) {\n      status = 'invalid';\n      reason = 'Google Drive returned error page - file not accessible';\n      fileType = 'HTML_ERROR';\n    } else if (!isPDF && !isJPEG && !isPNG) {\n      status = 'invalid';\n      reason = 'Unsupported file format';\n    }\n  }\n  \n  // Also validate by extension/mime as backup\n  const validExts = ['pdf', 'jpg', 'jpeg', 'png'];\n  const validMimes = ['application/pdf', 'image/jpeg', 'image/png'];\n  \n  if (status === 'valid' && !validExts.includes(fileExt) && !validMimes.includes(mimeType)) {\n    status = 'invalid';\n    reason = 'Unsupported file format - only PDF, JPG, PNG accepted';\n  }\n\n  return {\n    json: {\n      ...item.json,\n      fileBase64: isFilesystemRef ? 'filesystem-ref' : base64.substring(0, 100),\n      fileMimeType: mimeType,\n      _validation: {\n        status: status,\n        reason: reason,\n        fileType: fileType,\n        size: fileSize,\n        isFilesystemRef: isFilesystemRef\n      }\n    },\n    binary: item.binary\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1840,
+        -96
+      ],
+      "id": "9805f0e9-33b3-4a8c-86e5-2ac7522553f4",
+      "name": "Validate Download"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.fileId }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1632,
+        -96
+      ],
+      "id": "a40dbe74-32f1-458e-89ff-7e2016dbf95f",
+      "name": "Download Resume/CV",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9d8b46df-5ede-4c72-b5f8-c6c367660ccc",
+              "leftValue": "={{ $json._validation.status }}",
+              "rightValue": "valid",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2064,
+        -96
+      ],
+      "id": "9713c82a-8485-4b84-99d1-ad3c902d40e6",
+      "name": "Download Valid?"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Combine Streams').item.json.email }}",
+        "subject": "CV Upload Failed - Action Required",
+        "emailType": "text",
+        "message": "=Hi {{ $('Combine Streams').item.json.name }},  We couldn't process your CV file  because it appears to {{ $('Combine Streams').item.json.resumeUrl }} be corrupted, empty, or in an unsupported format.  Please re-upload a valid PDF, DOCX, or image file.  Thanks, HR Team.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2176,
+        368
+      ],
+      "id": "3732dd3a-9f24-48cc-a063-6a079475b0b7",
+      "name": "invalid resume email",
+      "webhookId": "YOUR_WEBHOOK_ID_HERE",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Business Development Manager Application (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 954949207,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Validate Download').item.json.sourceRow }}",
+            "Processed": "done"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CV Link",
+              "displayName": "CV Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Years of Sales Experience",
+              "displayName": "Years of Sales Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Largest Deal Closed",
+              "displayName": "Largest Deal Closed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2352,
+        640
+      ],
+      "id": "e6c4dff4-e57d-4b6b-a279-b1ac6fdf1bab",
+      "name": "Updating BDM Form",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Software Engineering Form  (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1996882588,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Validate Download').item.json.sourceRow }}",
+            "Processed": "done"
+          },
+          "matchingColumns": [
+            "Processed"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Resume",
+              "displayName": "Resume",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Years of Experience",
+              "displayName": "Years of Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Primary Programming Languages",
+              "displayName": "Primary Programming Languages",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2352,
+        512
+      ],
+      "id": "3296ec41-d564-46fc-b66e-5baa8082a111",
+      "name": "Updating SWE Form",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Master Hiring Sheet",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email_status": "=sent",
+            "status": "rejected",
+            "recommendation": "Download failed / invalid file",
+            "email": "={{ $json.email }}",
+            "score": "-------",
+            "classification": "-------",
+            "strengths": "-------",
+            "concerns": "-------",
+            "summary": "-------"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "resumeUrl",
+              "displayName": "resumeUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceSheet",
+              "displayName": "sourceSheet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceRow",
+              "displayName": "sourceRow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "applied_at",
+              "displayName": "applied_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "score",
+              "displayName": "score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "classification",
+              "displayName": "classification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "strengths",
+              "displayName": "strengths",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "concerns",
+              "displayName": "concerns",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "recommendation",
+              "displayName": "recommendation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email_status",
+              "displayName": "email_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2176,
+        832
+      ],
+      "id": "9eb0bdb5-9a73-4c20-bd8f-47798ab69475",
+      "name": "Updating Master Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst results = [];\n\nfor (let i = 0; i < items.length; i++) {\n  const item = items[i];\n  const binaryKey = Object.keys(item.binary || {})[0];\n  const mimeType = item.binary?.[binaryKey]?.mimeType || 'image/jpeg';\n  \n  // Correct way to read binary in n8n\n  const buffer = await this.helpers.getBinaryDataBuffer(i, binaryKey);\n  const base64 = buffer.toString('base64');\n  \n  results.push({\n    json: {\n      ...item.json,\n      fileBase64: base64,\n      fileMimeType: mimeType\n    },\n    binary: item.binary\n  });\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        -112
+      ],
+      "id": "a762199e-eb54-4036-9303-d955722628bc",
+      "name": " Convert to Base64"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [\n    {\n      \"parts\": [\n        {\n          \"text\": \"You are a strict hiring evaluator for {{ $json.role }} positions.\\n\\nThe applicant form says:\\n- Name: {{ $json.name }}\\n- Role: {{ $json.role }}\\n\\nAnalyze the CV and return ONLY this JSON — no markdown, no explanation:\\n\\n{\\n  \\\"isApplicantsResume\\\": true,\\n  \\\"mismatchReason\\\": null,\\n  \\\"score\\\": 0,\\n  \\\"classification\\\": \\\"Strong\\\",\\n  \\\"summary\\\": \\\"2-3 sentence evaluation\\\",\\n  \\\"strengths\\\": [\\\"strength1\\\"],\\n  \\\"concerns\\\": [\\\"concern1\\\"],\\n  \\\"recommendation\\\": \\\"interview\\\",\\n  \\\"extractedName\\\": \\\"name from CV\\\",\\n  \\\"email\\\": \\\"email or null\\\",\\n  \\\"phone\\\": \\\"phone or null\\\",\\n  \\\"yearsExperience\\\": 0,\\n  \\\"skills\\\": [\\\"skill1\\\"],\\n  \\\"education\\\": \\\"highest degree\\\",\\n  \\\"justification\\\": \\\"one sentence\\\"\\n}\\n\\nFRAUD / IDENTITY CHECK — isApplicantsResume = false if ANY:\\n- The name on the CV is NOT the same person as '{{ $json.name }}'\\n- 'Same person' means: exact match, OR one name fully contains the other\\n- Example: 'Sanwal Sharafat' ↔ 'Sanwal Sharafat' = SAME\\n- Example: 'Sanwal Sharafat' ↔ 'Sanwal' = SAME (subset)\\n- Example: 'Sanwal Sharafat' ↔ 'Sam Sharafat' = DIFFERENT\\n- Example: 'Sanwal Sharafat' ↔ 'S. Sharafat' = DIFFERENT\\n- Placeholder text still visible: 'Your Name', 'John Doe', '[Candidate Name]', 'Full Name'\\n- No name visible at all AND no contact info\\n- CV is clearly for a totally different person\\n\\nEVALUATION (only if isApplicantsResume = true):\\n- score: 0-100 based on role fit\\n- classification: Strong (80-100), Average (50-79), Weak (0-49)\\n- recommendation: interview (Strong), manager_review (Average), reject (Weak)\\n- summary: brief professional assessment of the candidate\\n- strengths: 2-3 key positives relevant to the role\\n- concerns: 2-3 gaps or risks\\n- justification: one sentence on why this classification was chosen\\n\\nROLE-SPECIFIC CRITERIA:\\n- Software Engineer: coding skills, projects, system design, GitHub, problem solving, algorithms\\n- Business Development Manager: sales track record, client relationships, deal closing, market knowledge, negotiation, revenue growth\"\n        },\n        {\n          \"inline_data\": {\n            \"mime_type\": \"{{ $json.fileMimeType }}\",\n            \"data\": \"{{ $json.fileBase64 }}\"\n          }\n        }\n      ]\n    }\n  ],\n  \"generationConfig\": {\n    \"temperature\": 0.1,\n    \"maxOutputTokens\": 2048\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2528,
+        -112
+      ],
+      "id": "371278db-f926-455d-b062-f19092adfd8a",
+      "name": "Gemini Applicant Analysis",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1. Gemini API response (from HTTP Request node, via $input)\nconst gemini = $input.first().json;\nconst text = gemini.candidates?.[0]?.content?.parts?.[0]?.text || '';\n\n// 2. Applicant data from the node BEFORE HTTP Request\nconst applicant = $(' Convert to Base64').item.json;\n\n// 3. Parse Gemini JSON text\nlet parsed = {};\ntry {\n  const clean = text.replace(/```json\\s*/g, '').replace(/```\\s*/g, '').trim();\n  const jsonMatch = clean.match(/\\{[\\s\\S]*\\}/);\n  parsed = JSON.parse(jsonMatch ? jsonMatch[0] : '{}');\n} catch (e) {\n  parsed = {};\n}\n\n// 4. STRICT name match\nconst appName = (applicant.name || '').toLowerCase().trim();\nconst cvName = (parsed.extractedName || '').toLowerCase().trim();\n\nfunction nameMatch(a, b) {\n  if (!a || !b) return false;\n  const cleanA = a.replace(/\\s+/g, ' ').trim();\n  const cleanB = b.replace(/\\s+/g, ' ').trim();\n  if (cleanA === cleanB) return true;\n  if (cleanA.includes(cleanB) || cleanB.includes(cleanA)) return true;\n  return false;\n}\n\nconst namesMatch = nameMatch(appName, cvName);\nconst isTemplateFraud = (parsed.mismatchReason || '').toLowerCase().includes('placeholder') ||\n                        (parsed.mismatchReason || '').toLowerCase().includes('template');\n\nconst isApplicantsResume = (parsed.isApplicantsResume !== false) && namesMatch && !isTemplateFraud;\n\nreturn {\n  json: {\n    // Applicant data\n    name: applicant.name,\n    email: applicant.email,\n    role: applicant.role || applicant.sourceSheet,\n    sourceSheet: applicant.sourceSheet,\n    sourceRow: applicant.sourceRow,\n    \n    // Gemini results\n    isApplicantsResume: isApplicantsResume,\n    mismatchReason: !namesMatch \n      ? `Name mismatch: app=\"${appName}\", CV=\"${cvName}\"` \n      : parsed.mismatchReason || null,\n    score: parsed.score || 0,\n    classification: parsed.classification || 'Weak',\n    summary: parsed.summary || '',\n    strengths: parsed.strengths || [],\n    concerns: parsed.concerns || [],\n    recommendation: parsed.recommendation || 'reject',\n    extractedName: parsed.extractedName || 'Unknown',\n    yearsExperience: parsed.yearsExperience || 0,\n    skills: parsed.skills || [],\n    education: parsed.education || 'Not found',\n    justification: parsed.justification || ''\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2752,
+        -112
+      ],
+      "id": "a139f917-84d9-48df-9cd6-5edd9402a2db",
+      "name": "Parse Response"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7528cf4d-dfe4-4d91-a2c3-77646573c03d",
+              "leftValue": "={{ $json.isApplicantsResume }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2960,
+        -112
+      ],
+      "id": "a91b971d-ed79-4c43-bdcc-d85c5d1819f1",
+      "name": " Identity Match?"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.classification }}",
+                    "rightValue": "Strong",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "52214875-192f-4260-83d1-5459d35a02bd"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Strong candidate"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "de8cefe4-c8b3-4e11-b673-ecd1047178ae",
+                    "leftValue": "={{ $json.classification }}",
+                    "rightValue": "Average",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Average Candidate"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "6ca587d9-c4a5-4216-b734-42d3295a4092",
+                    "leftValue": "={{ $json.classification }}",
+                    "rightValue": "Weak",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Weak Candidate"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        3248,
+        -144
+      ],
+      "id": "1db1afd8-d6e9-432e-8a7f-9e8cbaea4120",
+      "name": " Classification"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "Application Rejected — Resume Mismatch",
+        "emailType": "text",
+        "message": "=Hi {{ $json.name }},\n\nWe reviewed your CV but it does not match your application details.\n\nIssue: {{ $json.mismatchReason }}\n\nPlease submit a resume that belongs to you with your correct name: {{ $json.name }}.\n\nBest,\nHR Team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        3072,
+        368
+      ],
+      "id": "28796fdc-cff4-4b2a-be81-333ca15abc11",
+      "name": "Incorrect Id email",
+      "webhookId": "YOUR_WEBHOOK_ID_HERE",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Software Engineering Form  (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1996882588,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Processed": "done",
+            "row_number": "={{ $(' Identity Match?').item.json.sourceRow }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Resume",
+              "displayName": "Resume",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Years of Experience",
+              "displayName": "Years of Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Primary Programming Languages",
+              "displayName": "Primary Programming Languages",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3248,
+        512
+      ],
+      "id": "99ea0a16-a28f-406c-a521-8de0e97faff2",
+      "name": "Updating SWE Form1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Business Development Manager Application (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 954949207,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $(' Identity Match?').item.json.sourceRow }}",
+            "Processed": "done"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CV Link",
+              "displayName": "CV Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Years of Sales Experience",
+              "displayName": "Years of Sales Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Largest Deal Closed",
+              "displayName": "Largest Deal Closed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3248,
+        640
+      ],
+      "id": "dfaf74b4-24fa-4723-8118-21fbfd091eaf",
+      "name": "Updating BDM Form1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Master Hiring Sheet",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "=rejected",
+            "email": "={{ $json.email }}",
+            "recommendation": "={{ $json.mismatchReason }}",
+            "email_status": "sent",
+            "score": "-------",
+            "classification": "-------",
+            "summary": "-------",
+            "strengths": "-------",
+            "concerns": "-------"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "resumeUrl",
+              "displayName": "resumeUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceSheet",
+              "displayName": "sourceSheet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceRow",
+              "displayName": "sourceRow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "applied_at",
+              "displayName": "applied_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "score",
+              "displayName": "score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "classification",
+              "displayName": "classification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "strengths",
+              "displayName": "strengths",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "concerns",
+              "displayName": "concerns",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "recommendation",
+              "displayName": "recommendation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email_status",
+              "displayName": "email_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3072,
+        816
+      ],
+      "id": "64a6911f-d619-4808-b617-719b041a5929",
+      "name": "Updating Master Sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Master Hiring Sheet",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "=Strong",
+            "email": "={{ $json.email }}",
+            "recommendation": "={{ $json.recommendation }}",
+            "score": "{{ $json.score }}",
+            "classification": "={{ $json.classification }}",
+            "summary": "={{ $json.summary }}",
+            "strengths": "={{ $json.strengths.join(', ') }}",
+            "concerns": "={{ $json.concerns.join(', ') }}"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "resumeUrl",
+              "displayName": "resumeUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceSheet",
+              "displayName": "sourceSheet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceRow",
+              "displayName": "sourceRow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "applied_at",
+              "displayName": "applied_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "score",
+              "displayName": "score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "classification",
+              "displayName": "classification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "strengths",
+              "displayName": "strengths",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "concerns",
+              "displayName": "concerns",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "recommendation",
+              "displayName": "recommendation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email_status",
+              "displayName": "email_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3504,
+        -256
+      ],
+      "id": "f19a6f28-6fb3-493b-845b-4abd75cd9047",
+      "name": "Record Strong Candidate",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3776,
+        -144
+      ],
+      "id": "de71c54a-2630-4463-8924-66e012f3cb39",
+      "name": "Combining Streams"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Software Engineering Form  (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1996882588,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Processed": "done",
+            "row_number": "={{ $(' Identity Match?').item.json.sourceRow }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Resume",
+              "displayName": "Resume",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Years of Experience",
+              "displayName": "Years of Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Primary Programming Languages",
+              "displayName": "Primary Programming Languages",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4304,
+        -208
+      ],
+      "id": "644429ac-9c71-49d2-a098-bb4264454668",
+      "name": "Updating SWE Form2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Business Development Manager Application (Responses)",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 954949207,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $(' Identity Match?').item.json.sourceRow }}",
+            "Processed": "done"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "CV Link",
+              "displayName": "CV Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Years of Sales Experience",
+              "displayName": "Years of Sales Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Largest Deal Closed",
+              "displayName": "Largest Deal Closed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4304,
+        -48
+      ],
+      "id": "e12d4fdf-b7b4-46ff-bccc-e761c75ea587",
+      "name": "Updating BDM Form2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "\n# INGESTION:",
+        "height": 448,
+        "width": 624,
+        "color": "#0FD21C"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        -240
+      ],
+      "id": "df0dd64a-b4e2-426f-8d98-4c52677ce4ba",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "# DATA CLEANING:\n",
+        "height": 448,
+        "width": 832
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        -240
+      ],
+      "id": "19d3243b-1743-4d33-bab7-5ca0dc594abd",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "# DOWNLOAD & VALIDATE:\n",
+        "height": 448,
+        "width": 816,
+        "color": "#08ABD4"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        -240
+      ],
+      "id": "24b3ffd9-7142-4591-a29f-2eda4cdf2cd0",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "# Download Error Handling:\n",
+        "height": 688,
+        "width": 720,
+        "color": "#EA1A1A"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1904,
+        304
+      ],
+      "id": "2eab2049-ef0a-4b00-974a-6e5994583376",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "# False Identity Handling:",
+        "height": 688,
+        "width": 720,
+        "color": "#F42A2A"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2816,
+        304
+      ],
+      "id": "025c6ae2-a7c3-4f07-b9f0-ad44a1fb5c15",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "# AI SCREENING:",
+        "height": 448,
+        "width": 784,
+        "color": "#08ABD4"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2288,
+        -240
+      ],
+      "id": "4e5e12a4-4847-406c-b658-910e86b463cc",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "# CLASSIFICATION:",
+        "height": 544,
+        "width": 1296,
+        "color": "#FB9404"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3184,
+        -336
+      ],
+      "id": "d19ee470-cbf5-4624-8c70-95425b1d2f29",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Master Hiring Sheet",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $json.email }}",
+            "recommendation": "={{ $json.recommendation }}",
+            "score": "{{ $json.score }}",
+            "classification": "={{ $json.classification }}",
+            "summary": "={{ $json.summary }}",
+            "strengths": "={{ $json.strengths.join(', ') }}",
+            "concerns": "={{ $json.concerns.join(', ') }}",
+            "status": "Average"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "resumeUrl",
+              "displayName": "resumeUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceSheet",
+              "displayName": "sourceSheet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceRow",
+              "displayName": "sourceRow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "applied_at",
+              "displayName": "applied_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "score",
+              "displayName": "score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "classification",
+              "displayName": "classification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "strengths",
+              "displayName": "strengths",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "concerns",
+              "displayName": "concerns",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "recommendation",
+              "displayName": "recommendation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email_status",
+              "displayName": "email_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3504,
+        -128
+      ],
+      "id": "e8e73d0b-ca4e-4a73-9ad1-960ced34f53b",
+      "name": "Record Average Candidate",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_DOCUMENT_ID_HERE",
+          "mode": "list",
+          "cachedResultName": "Master Hiring Sheet",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $json.email }}",
+            "recommendation": "={{ $json.recommendation }}",
+            "score": "{{ $json.score }}",
+            "classification": "={{ $json.classification }}",
+            "summary": "={{ $json.summary }}",
+            "strengths": "={{ $json.strengths.join(', ') }}",
+            "concerns": "={{ $json.concerns.join(', ') }}",
+            "status": "Weak"
+          },
+          "matchingColumns": [
+            "email"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "resumeUrl",
+              "displayName": "resumeUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceSheet",
+              "displayName": "sourceSheet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sourceRow",
+              "displayName": "sourceRow",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "applied_at",
+              "displayName": "applied_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "score",
+              "displayName": "score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "classification",
+              "displayName": "classification",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "strengths",
+              "displayName": "strengths",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "concerns",
+              "displayName": "concerns",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "recommendation",
+              "displayName": "recommendation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "email_status",
+              "displayName": "email_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3504,
+        16
+      ],
+      "id": "bc288e75-cec5-423e-8079-abd1cc33081e",
+      "name": "Record Weak Candidate",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID_HERE",
+          "name": "OAuth Account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Updating SWE Form",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Updating BDM Form",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Updating SWE Form1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Updating BDM Form1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch3": {
+      "main": [
+        [
+          {
+            "node": "Updating SWE Form2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Updating BDM Form2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 15 Min": {
+      "main": [
+        [
+          {
+            "node": "Get SWE Applications",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get BDM Applications",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get SWE Applications": {
+      "main": [
+        [
+          {
+            "node": "Standardize SWE Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get BDM Applications": {
+      "main": [
+        [
+          {
+            "node": "Standardize BDM Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Standardize SWE Data": {
+      "main": [
+        [
+          {
+            "node": "Combine Streams",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Standardize BDM Data": {
+      "main": [
+        [
+          {
+            "node": "Combine Streams",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Combine Streams": {
+      "main": [
+        [
+          {
+            "node": "Application Count > 0",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write to Master": {
+      "main": [
+        [
+          {
+            "node": " Extract Drive File ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Application Count > 0": {
+      "main": [
+        [
+          {
+            "node": "Format Application Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Application Data": {
+      "main": [
+        [
+          {
+            "node": "Write to Master",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " Extract Drive File ID": {
+      "main": [
+        [
+          {
+            "node": "Download Resume/CV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Download": {
+      "main": [
+        [
+          {
+            "node": "Download Valid?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Resume/CV": {
+      "main": [
+        [
+          {
+            "node": "Validate Download",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Valid?": {
+      "main": [
+        [
+          {
+            "node": " Convert to Base64",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "invalid resume email",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Updating Master Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " Convert to Base64": {
+      "main": [
+        [
+          {
+            "node": "Gemini Applicant Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Applicant Analysis": {
+      "main": [
+        [
+          {
+            "node": "Parse Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Response": {
+      "main": [
+        [
+          {
+            "node": " Identity Match?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " Identity Match?": {
+      "main": [
+        [
+          {
+            "node": " Classification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Incorrect Id email",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Updating Master Sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " Classification": {
+      "main": [
+        [
+          {
+            "node": "Record Strong Candidate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Record Average Candidate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Record Weak Candidate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record Strong Candidate": {
+      "main": [
+        [
+          {
+            "node": "Combining Streams",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combining Streams": {
+      "main": [
+        [
+          {
+            "node": "Switch3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Updating BDM Form1": {
+      "main": [
+        []
+      ]
+    },
+    "Record Average Candidate": {
+      "main": [
+        [
+          {
+            "node": "Combining Streams",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Record Weak Candidate": {
+      "main": [
+        [
+          {
+            "node": "Combining Streams",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "9bc7f4f7-0604-4658-9005-35f04a89af79",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bd4738b7eacd2caeace78a8dd1fc119e24e627bafe776142c927aa62f72eec41"
+  },
+  "id": "cBuqoe1IRyHePJw9",
+  "tags": []
+}
